@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - GrepDoom</title>
+  <style>
+    /* Reset simple */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ddd;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+      color: #ff3366;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      text-shadow: 0 0 5px #ff3366aa;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ff3366;
+      padding-bottom: 0.3rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #ffa3b1;
+    }
+    p, blockquote, li {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+    blockquote {
+      border-left: 4px solid #ff3366;
+      padding-left: 1rem;
+      font-style: italic;
+      color: #ff7799;
+      background-color: #2a2a2a;
+      margin: 1rem 0 2rem 0;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #ff3366aa;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ff336680;
+      margin: 2rem 0;
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    a {
+      color: #ff6699;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #ff3366;
+      text-decoration: underline;
+    }
+    /* Contact list style */
+    .contact-list {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+    .contact-list li {
+      margin-bottom: 0.7rem;
+    }
+    .contact-list a {
+      word-break: break-all;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio</h1>
+    <h2>Prenez le temps pour tout lire !</h2>
+  </header>
+
+  <section id="presentation-personnelle">
+    <h3>Ma Présentation</h3>
+    <h1>Salut, moi c’est GrepDoom</h1>
+    <blockquote>
+      Pseudo que je change tellement souvent que, d’ici à ce que vous tombiez sur mon portfolio,<br />
+      j’en aurai probablement déjà changé une dizaine de fois… ahah.
+    </blockquote>
+    <hr />
+  </section>
+
+  <section id="presentation">
+    <h2>Présentation</h2>
+    <p>
+      Je baigne dans le milieu de la cybersécurité depuis bientôt 3 ans, 24h/24, 7j/7, non-stop.  
+      Ma passion pour l’informatique remonte à mon plus jeune âge : à 8 ans (CE2), je débloquais déjà des téléphones à distance — celui de ma mère, pour être précis :) — sans connaître le code ni toucher physiquement à l’appareil.
+    </p>
+    <p>
+      Ça peut sembler "anodin" ou “facile” pour certains, mais en discutant aujourd’hui avec des personnes de mon âge, j’ai découvert que beaucoup ne savent même pas ce qu’est un système d’exploitation…  
+      À part me répondre “Linux” — qui, je le rappelle, n’est pas un système d’exploitation mais un kernel.
+    </p>
+    <hr />
+  </section>
+
+  <section id="retour-moutons">
+    <h2>Retour à nos moutons</h2>
+    <p>
+      Depuis toujours, je suis un passionné de tout ce qui touche à l’informatique. Tout me passionne !  
+      Puis j'aime tout connaître et ne pas paraître bête sur des sujets.  
+      Ma dernière pulsion était l'achat d'un "m5Stick C Plus 2" où je m’étais bricolé un petit setup cool (j'ai acheté 3 mauvais modules au début :/).  
+      Je m'amusais à fermer le portail du voisin lorsqu'il l'ouvrait :)
+    </p>
+    <hr />
+  </section>
+
+  <section id="anonymat">
+    <h2>Mon obsession : l’anonymat (Privacy Engineering)</h2>
+    <p>
+      Je privilégie toujours la confidentialité à la vitesse, quitte à être bloqué sur certains sites pour cause de proxy détecté ou d’activité suspecte.
+      Plus paranoïaque ? Je n’en ai pas croisé beaucoup… à part quelques personnes sur Discord qui me juraient avoir une meilleure opsec que moi.
+    </p>
+    <p>J’ai vite arrêté de les écouter quand ils m’ont expliqué leur “setup” :</p>
+    <ul>
+      <li>ProtonVPN aux Pays-Bas</li>
+      <li>Un second VPN gratuit (<em>inutile et qui revend vos données — leur source de revenus</em>)</li>
+      <li>OperaGX (<em>de nombreuses fuites lors des tests de confidentialité</em>)</li>
+    </ul>
+    <blockquote>
+      Et bien voilà, je pense que les présentations ont bien été faites, je vous laisse sur ça !
+    </blockquote>
+    <hr />
+  </section>
+
+  <section id="projets">
+    <h2>Mes Projets</h2>
+    <p>En développement de la suite de mon portfolio !</p>
+    <hr />
+  </section>
+
+  <section id="objectifs">
+    <h2>Mes Objectifs</h2>
+    <p>En développement de la suite de mon portfolio !</p>
+    <hr />
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Telegram : <a href="https://t.me/bavouille" target="_blank" rel="noopener noreferrer">https://t.me/bavouille</a></li>
+      <li>Discord : rootovik</li>
+      <li>LiteCoin : ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6</li>
+    </ul>
+  </section>
+
+</body>
+</html>
