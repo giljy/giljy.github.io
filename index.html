@@ -1,207 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GrepDoom - Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio GrepDoom</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap');
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    color: #f0f0f0;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem;
-  }
-  main {
-    max-width: 900px;
-    background: rgba(30, 30, 40, 0.85);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    padding: 2.5rem 3rem;
-    backdrop-filter: blur(10px);
-  }
-  h1, h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #ff3366;
-    text-align: center;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    text-shadow: 0 0 8px #ff3366;
-  }
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 3px solid #ff3366;
-    padding-bottom: 0.3rem;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  p {
-    font-size: 1.15rem;
-    margin-bottom: 1.2rem;
-    color: #ddd;
-  }
-  blockquote {
-    font-style: italic;
-    background: #2f2c3a;
-    border-left: 6px solid #ff3366;
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0 2rem 0;
-    border-radius: 8px;
-    box-shadow: 0 0 8px #ff3366aa;
-    color: #ffa3b1;
-  }
-  ul {
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
-    color: #f8f0f2;
-  }
-  li {
-    margin-bottom: 0.7rem;
-  }
-  a {
-    color: #ff3366;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #ff6699;
-  }
-  hr {
-    border: none;
-    border-top: 1px solid #ff3366aa;
-    margin: 2rem 0;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-list {
-    list-style: none;
-    padding-left: 0;
-    font-size: 1.1rem;
-    color: #ddd;
-  }
-  .contact-list li {
-    margin-bottom: 1rem;
-    word-break: break-word;
-  }
-  section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
-  }
-  section:nth-of-type(1) { animation-delay: 0.15s; }
-  section:nth-of-type(2) { animation-delay: 0.3s; }
-  section:nth-of-type(3) { animation-delay: 0.45s; }
-  section:nth-of-type(4) { animation-delay: 0.6s; }
-  section:nth-of-type(5) { animation-delay: 0.75s; }
-  section:nth-of-type(6) { animation-delay: 0.9s; }
-  section:nth-of-type(7) { animation-delay: 1.05s; }
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @media (max-width: 600px) {
-    main {
-      padding: 1.5rem 1.5rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-    }
-    h2 {
-      font-size: 1.6rem;
-      max-width: 100%;
-      border-bottom-width: 2px;
-    }
-  }
+html,body{
+    margin:0;
+    padding:0;
+    font-family:Consolas,monospace;
+    background-color:#ece9d8;
+}
+.window{
+    border:2px solid #0054e3;
+    width:80%;
+    margin:30px auto;
+    box-shadow:2px 2px 5px rgba(0,0,0,0.4);
+}
+.title-bar{
+    background:linear-gradient(to bottom,#0054e3,#003c9e);
+    color:#fff;
+    padding:4px 8px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-weight:bold;
+}
+.title-bar-buttons{
+    display:flex;
+    gap:2px;
+}
+.title-bar-buttons div{
+    width:16px;
+    height:16px;
+    background-color:#c0c0c0;
+    border:1px solid #808080;
+    text-align:center;
+    line-height:14px;
+    font-size:12px;
+    cursor:pointer;
+}
+.menu-bar{
+    background-color:#d4d0c8;
+    padding:3px 8px;
+    border-bottom:1px solid #808080;
+}
+.content{
+    padding:15px;
+    background-color:#fff;
+    min-height:300px;
+}
+h1,h2,h3{
+    margin-top:0;
+}
+.footer{
+    background-color:#d4d0c8;
+    padding:5px 10px;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.lang-select{
+    background:#fff;
+    border:1px solid #808080;
+    padding:2px;
+}
+.eye{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+}
+.eye svg{
+    width:18px;
+    height:18px;
+}
 </style>
 </head>
 <body>
-  <main>
-    <section id="intro">
-      <h1>Salut, moi c’est GrepDoom</h1>
-      <blockquote>
-        Pseudo que je change tellement souvent que, d’ici à ce que vous tombiez sur mon portfolio,  
-        j’en aurai probablement déjà changé une dizaine de fois… ahah.
-      </blockquote>
-    </section>
+<div class="window">
+    <div class="title-bar">
+        <span id="title-text">Portfolio - GrepDoom</span>
+        <div class="title-bar-buttons">
+            <div>_</div>
+            <div>□</div>
+            <div>×</div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <select id="language" class="lang-select">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    <div class="content">
+        <h1 id="greeting"></h1>
+        <p id="intro"></p>
+        <h2 id="skills-title"></h2>
+        <ul id="skills-list"></ul>
+        <h2 id="projects-title"></h2>
+        <ul id="projects-list"></ul>
+        <h2 id="contact-title"></h2>
+        <ul id="contact-list"></ul>
+    </div>
+    <div class="footer">
+        <div class="eye">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12z"/>
+                <circle cx="12" cy="12" r="3" fill="black"/>
+            </svg>
+            <span id="view-count">0</span>
+        </div>
+        <span id="footer-text"></span>
+    </div>
+</div>
 
-    <section id="presentation">
-      <h2>Présentation</h2>
-      <p>
-        Je baigne dans le milieu de la cybersécurité depuis bientôt 3 ans, 24h/24, 7j/7, non-stop.  
-        Ma passion pour l’informatique remonte à mon plus jeune âge : à 8 ans (CE2), je débloquais déjà des téléphones à distance — celui de ma mère, pour être précis :) — sans connaître le code ni toucher physiquement à l’appareil.
-      </p>
-      <p>
-        Ça peut sembler "anodin" ou “facile” pour certains, mais en discutant aujourd’hui avec des personnes de mon âge, j’ai découvert que beaucoup ne savent même pas ce qu’est un système d’exploitation…  
-        À part me répondre “Linux” — qui, je le rappelle, n’est pas un système d’exploitation mais un kernel.
-      </p>
-    </section>
+<script>
+"use strict";
+const translations={
+    fr:{
+        greeting:"Salut, moi c’est GrepDoom",
+        intro:"Passionné d'informatique et de cybersécurité depuis plusieurs années, je suis toujours en quête de nouvelles connaissances et de défis techniques.",
+        skillsTitle:"Compétences",
+        skills:["Cybersécurité","Développement Web","OpSec et anonymat","Automatisation"],
+        projectsTitle:"Projets",
+        projects:["Portfolio en ligne","Outils d'analyse réseau","Scripts d'automatisation"],
+        contactTitle:"Contact",
+        contact:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"],
+        footer:"© 2025 GrepDoom - Tous droits réservés"
+    },
+    en:{
+        greeting:"Hi, I’m GrepDoom",
+        intro:"Passionate about IT and cybersecurity for several years, I’m always seeking new knowledge and technical challenges.",
+        skillsTitle:"Skills",
+        skills:["Cybersecurity","Web Development","OpSec and privacy","Automation"],
+        projectsTitle:"Projects",
+        projects:["Online portfolio","Network analysis tools","Automation scripts"],
+        contactTitle:"Contact",
+        contact:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"],
+        footer:"© 2025 GrepDoom - All rights reserved"
+    }
+};
+function updateLanguage(lang){
+    document.getElementById("greeting").innerText=translations[lang].greeting;
+    document.getElementById("intro").innerText=translations[lang].intro;
+    document.getElementById("skills-title").innerText=translations[lang].skillsTitle;
+    const skillsList=document.getElementById("skills-list");
+    skillsList.innerHTML="";
+    translations[lang].skills.forEach(s=>{
+        const li=document.createElement("li");
+        li.innerText=s;
+        skillsList.appendChild(li);
+    });
+    document.getElementById("projects-title").innerText=translations[lang].projectsTitle;
+    const projectsList=document.getElementById("projects-list");
+    projectsList.innerHTML="";
+    translations[lang].projects.forEach(p=>{
+        const li=document.createElement("li");
+        li.innerText=p;
+        projectsList.appendChild(li);
+    });
+    document.getElementById("contact-title").innerText=translations[lang].contactTitle;
+    const contactList=document.getElementById("contact-list");
+    contactList.innerHTML="";
+    translations[lang].contact.forEach(c=>{
+        const li=document.createElement("li");
+        li.innerText=c;
+        contactList.appendChild(li);
+    });
+    document.getElementById("footer-text").innerText=translations[lang].footer;
+}
+document.getElementById("language").addEventListener("change",e=>{
+    updateLanguage(e.target.value);
+});
+updateLanguage("fr");
 
-    <section id="retour">
-      <h2>Retour à nos moutons</h2>
-      <p>
-        Depuis toujours, je suis un passionné de tout ce qui touche à l’informatique. Tout me passionne !  
-        Puis j'aime tout connaître et ne pas paraître bête sur des sujets.  
-        Ma dernière pulsion était l'achat d'un "m5Stick C Plus 2" où je m’étais bricolé un petit setup cool (j'ai acheté 3 mauvais modules au début :/).  
-        Je m'amusais à fermer le portail du voisin lorsqu'il l'ouvrait :)
-      </p>
-    </section>
-
-    <section id="anonymat">
-      <h2>Mon obsession : l’anonymat (Privacy Engineering)</h2>
-      <p>
-        Je privilégie toujours la confidentialité à la vitesse, quitte à être bloqué sur certains sites pour cause de proxy détecté ou d’activité suspecte.  
-        Plus paranoïaque ? Je n’en ai pas croisé beaucoup… à part quelques personnes sur Discord qui me juraient avoir une meilleure opsec que moi.
-      </p>
-      <p>J’ai vite arrêté de les écouter quand ils m’ont expliqué leur “setup” :</p>
-      <ul>
-        <li>ProtonVPN aux Pays-Bas</li>
-        <li>Un second VPN gratuit (<em>inutile et qui revend vos données — leur source de revenus</em>)</li>
-        <li>OperaGX (<em>de nombreuses fuites lors des tests de confidentialité</em>)</li>
-      </ul>
-      <blockquote>
-        Et bien voilà, je pense que les présentations ont bien été faites, je vous laisse sur ça !
-      </blockquote>
-    </section>
-
-    <section id="projets">
-      <h2>Mes Projets</h2>
-      <p>En développement de la suite de mon portfolio !</p>
-    </section>
-
-    <section id="objectifs">
-      <h2>Mes Objectifs</h2>
-      <p>En développement de la suite de mon portfolio !</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li>Telegram : <a href="https://t.me/bavouille" target="_blank" rel="noopener noreferrer">https://t.me/bavouille</a></li>
-        <li>Discord : rootovik</li>
-        <li>LiteCoin : ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6</li>
-      </ul>
-    </section>
-  </main>
+fetch("https://api.countapi.xyz/hit/grepdoom-portfolio/views")
+.then(r=>r.json())
+.then(d=>{
+    document.getElementById("view-count").innerText=d.value;
+});
+</script>
 </body>
 </html>
