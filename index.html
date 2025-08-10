@@ -1,185 +1,207 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio GrepDoom</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GrepDoom - Portfolio</title>
 <style>
-html,body{
-    margin:0;
-    padding:0;
-    font-family:Consolas,monospace;
-    background-color:#ece9d8;
-}
-.window{
-    border:2px solid #0054e3;
-    width:80%;
-    margin:30px auto;
-    box-shadow:2px 2px 5px rgba(0,0,0,0.4);
-}
-.title-bar{
-    background:linear-gradient(to bottom,#0054e3,#003c9e);
-    color:#fff;
-    padding:4px 8px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    font-weight:bold;
-}
-.title-bar-buttons{
-    display:flex;
-    gap:2px;
-}
-.title-bar-buttons div{
-    width:16px;
-    height:16px;
-    background-color:#c0c0c0;
-    border:1px solid #808080;
-    text-align:center;
-    line-height:14px;
-    font-size:12px;
-    cursor:pointer;
-}
-.menu-bar{
-    background-color:#d4d0c8;
-    padding:3px 8px;
-    border-bottom:1px solid #808080;
-}
-.content{
-    padding:15px;
-    background-color:#fff;
-    min-height:300px;
-}
-h1,h2,h3{
-    margin-top:0;
-}
-.footer{
-    background-color:#d4d0c8;
-    padding:5px 10px;
-    font-size:14px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.lang-select{
-    background:#fff;
-    border:1px solid #808080;
-    padding:2px;
-}
-.eye{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-}
-.eye svg{
-    width:18px;
-    height:18px;
-}
+html,body{height:100%;margin:0;font-family:Consolas,monospace;background:#cfcfcf}
+.app{width:92%;max-width:1100px;margin:24px auto;border:2px solid #000;box-shadow:4px 4px 0 rgba(0,0,0,0.35)}
+.titlebar{background:linear-gradient(#0054e3,#003c9e);color:#fff;padding:6px 10px;display:flex;align-items:center;justify-content:space-between}
+.titlebar .title{font-weight:700}
+.titlebar .buttons{display:flex;gap:6px}
+.btn{width:18px;height:18px;background:#c0c0c0;border:1px solid #808080;display:inline-flex;align-items:center;justify-content:center;cursor:default}
+.menubar{background:#d4d0c8;padding:6px 8px;border-bottom:1px solid #808080;display:flex;align-items:center;gap:10px}
+.container{display:flex;min-height:480px;background:#ffffff}
+.sidebar{width:230px;border-right:2px solid #808080;background:#e7e4df;padding:12px;box-sizing:border-box}
+.sidebar h3{margin:0 0 10px 0;color:#000}
+.side-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.side-list button{background:#f3f3f3;border:2px outset #cfcfcf;padding:8px;text-align:left;cursor:pointer;font-family:Consolas,monospace}
+.main{flex:1;padding:18px;box-sizing:border-box;overflow:auto}
+.window-block{background:#fff;border:2px inset #bfbfbf;padding:12px;margin-bottom:12px}
+h1,h2{font-family:Consolas,monospace;margin:0 0 10px 0;color:#003c9e}
+p,li{color:#111;line-height:1.5}
+blockquote{background:#f0f0f0;border-left:6px solid #003c9e;padding:10px;margin:10px 0;font-style:italic}
+.footer{background:#d4d0c8;padding:8px 12px;border-top:1px solid #808080;display:flex;justify-content:space-between;align-items:center}
+.lang{margin-left:auto}
+.eye{display:inline-flex;align-items:center;gap:8px}
+.eye svg{width:18px;height:18px}
+.small{font-size:13px;color:#222}
+@media(max-width:800px){.container{flex-direction:column}.sidebar{width:100%;border-right:none;border-bottom:2px solid #808080}}
 </style>
 </head>
 <body>
-<div class="window">
-    <div class="title-bar">
-        <span id="title-text">Portfolio - GrepDoom</span>
-        <div class="title-bar-buttons">
-            <div>_</div>
-            <div>□</div>
-            <div>×</div>
-        </div>
+<div class="app" role="application" aria-label="Portfolio GrepDoom">
+  <div class="titlebar">
+    <div class="title">GrepDoom - Portfolio</div>
+    <div class="buttons">
+      <div class="btn" aria-hidden="true">_</div>
+      <div class="btn" aria-hidden="true">□</div>
+      <div class="btn" aria-hidden="true">×</div>
     </div>
-    <div class="menu-bar">
-        <select id="language" class="lang-select">
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-        </select>
+  </div>
+
+  <div class="menubar">
+    <div class="small">Fichier</div>
+    <div class="small">Edition</div>
+    <div class="small">Affichage</div>
+    <div class="small">Aide</div>
+    <div class="lang">
+      <label class="small" for="langsel">Lang :</label>
+      <select id="langsel" aria-label="Langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+      </select>
     </div>
-    <div class="content">
-        <h1 id="greeting"></h1>
-        <p id="intro"></p>
-        <h2 id="skills-title"></h2>
-        <ul id="skills-list"></ul>
-        <h2 id="projects-title"></h2>
-        <ul id="projects-list"></ul>
+  </div>
+
+  <div class="container">
+    <aside class="sidebar" role="navigation">
+      <h3>Navigation</h3>
+      <ul class="side-list">
+        <li><button data-target="section-intro">Présentation</button></li>
+        <li><button data-target="section-retour">Retour à nos moutons</button></li>
+        <li><button data-target="section-anonymat">Mon obsession</button></li>
+        <li><button data-target="section-projets">Projets</button></li>
+        <li><button data-target="section-objectifs">Objectifs</button></li>
+        <li><button data-target="section-contact">Contact</button></li>
+      </ul>
+    </aside>
+
+    <main class="main" id="maincontent" tabindex="0">
+      <section id="section-intro" class="window-block" aria-labelledby="intro-title">
+        <h1 id="intro-title"></h1>
+        <blockquote id="intro-quote"></blockquote>
+        <p id="intro-text"></p>
+      </section>
+
+      <section id="section-retour" class="window-block" aria-labelledby="retour-title">
+        <h2 id="retour-title"></h2>
+        <p id="retour-text"></p>
+      </section>
+
+      <section id="section-anonymat" class="window-block" aria-labelledby="anonymat-title">
+        <h2 id="anonymat-title"></h2>
+        <p id="anonymat-text"></p>
+        <ul id="anonymat-list"></ul>
+        <blockquote id="anonymat-quote"></blockquote>
+      </section>
+
+      <section id="section-projets" class="window-block" aria-labelledby="projets-title">
+        <h2 id="projets-title"></h2>
+        <p id="projets-text" class="small"></p>
+      </section>
+
+      <section id="section-objectifs" class="window-block" aria-labelledby="objectifs-title">
+        <h2 id="objectifs-title"></h2>
+        <p id="objectifs-text" class="small"></p>
+      </section>
+
+      <section id="section-contact" class="window-block" aria-labelledby="contact-title">
         <h2 id="contact-title"></h2>
         <ul id="contact-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div class="footer" role="contentinfo">
+    <div class="small">© 2025 GrepDoom</div>
+    <div class="eye">
+      <svg viewBox="0 0 24 24" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/><circle cx="12" cy="12" r="3" fill="black"/></svg>
+      <div id="viewcount" class="small">0</div>
     </div>
-    <div class="footer">
-        <div class="eye">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12z"/>
-                <circle cx="12" cy="12" r="3" fill="black"/>
-            </svg>
-            <span id="view-count">0</span>
-        </div>
-        <span id="footer-text"></span>
-    </div>
+  </div>
 </div>
 
 <script>
 "use strict";
+const API_KEY="VX3EAk-1f6ZDTuGgIyi-lzqBJmcQVgVx1V-oa18qNrc";
+const NAMESPACE="giljy.github.io";
+const KEY="views";
 const translations={
-    fr:{
-        greeting:"Salut, moi c’est GrepDoom",
-        intro:"Passionné d'informatique et de cybersécurité depuis plusieurs années, je suis toujours en quête de nouvelles connaissances et de défis techniques.",
-        skillsTitle:"Compétences",
-        skills:["Cybersécurité","Développement Web","OpSec et anonymat","Automatisation"],
-        projectsTitle:"Projets",
-        projects:["Portfolio en ligne","Outils d'analyse réseau","Scripts d'automatisation"],
-        contactTitle:"Contact",
-        contact:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"],
-        footer:"© 2025 GrepDoom - Tous droits réservés"
-    },
-    en:{
-        greeting:"Hi, I’m GrepDoom",
-        intro:"Passionate about IT and cybersecurity for several years, I’m always seeking new knowledge and technical challenges.",
-        skillsTitle:"Skills",
-        skills:["Cybersecurity","Web Development","OpSec and privacy","Automation"],
-        projectsTitle:"Projects",
-        projects:["Online portfolio","Network analysis tools","Automation scripts"],
-        contactTitle:"Contact",
-        contact:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"],
-        footer:"© 2025 GrepDoom - All rights reserved"
-    }
+  fr:{
+    introTitle:"Salut, moi c’est GrepDoom",
+    introQuote:"Pseudo que je change tellement souvent que, d’ici à ce que vous tombiez sur mon portfolio, j’en aurai probablement déjà changé une dizaine de fois… ahah.",
+    introText:"Je baigne dans le milieu de la cyber depuis bientôt 3 ans, 24h/24, 7j/7. Ma passion pour l’informatique remonte à mon plus jeune âge : à 8 ans (CE2), je débloquais déjà des téléphones à distance — celui de ma mère — sans connaître le code ni toucher physiquement à l’appareil.",
+    retourTitle:"Retour à nos moutons",
+    retourText:"Depuis toujours, je suis passionné par tout ce qui touche à l’informatique. J’aime tout connaître et ne pas paraître bête sur des sujets. Ma dernière pulsion était l'achat d'un m5Stick C Plus 2 : j'avais acheté de mauvais modules au début, puis j’ai bricolé un setup et m’amusais parfois à fermer le portail du voisin quand il l’ouvrait.",
+    anonymatTitle:"Mon obsession : l’anonymat (Privacy Engineering)",
+    anonymatText:"Je privilégie toujours la confidentialité à la vitesse, quitte à être bloqué sur certains sites pour cause de proxy détecté ou d’activité suspecte. Je suis attentif à l’opsec et aux fuites de données.",
+    anonymatList:["ProtonVPN (Pays-Bas)","Un second VPN gratuit (inutile / revend des données)","OperaGX (fuites constatées lors de tests)"],
+    anonymatQuote:"Et bien voilà, je pense que les présentations ont bien été faites, je vous laisse sur ça !",
+    projetsTitle:"Mes Projets",
+    projetsText:"(en développement — rien à afficher pour l'instant)",
+    objectifsTitle:"Mes Objectifs",
+    objectifsText:"(en développement — décrirai ici mes objectifs bientôt)",
+    contactTitle:"Contact",
+    contactList:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"]
+  },
+  en:{
+    introTitle:"Hi, I’m GrepDoom",
+    introQuote:"A handle I change so often that by the time you find my portfolio I’ll probably have changed it a dozen times… haha.",
+    introText:"I’ve been immersed in cybersecurity for almost 3 years, around the clock. My passion for computing goes back to childhood: at age 8 I was unlocking phones remotely — my mother’s — without knowing code or touching the device.",
+    retourTitle:"Back to the point",
+    retourText:"I’ve always been passionate about everything related to computing. I like to know things and not look dumb on topics. My latest impulse was buying an m5Stick C Plus 2: I bought bad modules at first, then I built a setup and sometimes had fun closing the neighbour's gate when he opened it.",
+    anonymatTitle:"My obsession: anonymity (Privacy Engineering)",
+    anonymatText:"I always prioritise privacy over speed, even if it gets me blocked on some sites due to proxy detection or suspicious activity. I pay attention to opsec and data leaks.",
+    anonymatList:["ProtonVPN (Netherlands)","A second free VPN (useless / sells data)","OperaGX (privacy leaks observed in tests)"],
+    anonymatQuote:"Alright, that’s the intro. I’ll leave you with that!",
+    projetsTitle:"Projects",
+    projetsText:"(in development — nothing to show yet)",
+    objectifsTitle:"Goals",
+    objectifsText:"(in development — will describe goals here soon)",
+    contactTitle:"Contact",
+    contactList:["Telegram: https://t.me/bavouille","Discord: rootovik","LiteCoin: ltc1qh6h9xjvdxpevmnpk87uepvmauk8gll63szmhs6"]
+  }
 };
-function updateLanguage(lang){
-    document.getElementById("greeting").innerText=translations[lang].greeting;
-    document.getElementById("intro").innerText=translations[lang].intro;
-    document.getElementById("skills-title").innerText=translations[lang].skillsTitle;
-    const skillsList=document.getElementById("skills-list");
-    skillsList.innerHTML="";
-    translations[lang].skills.forEach(s=>{
-        const li=document.createElement("li");
-        li.innerText=s;
-        skillsList.appendChild(li);
-    });
-    document.getElementById("projects-title").innerText=translations[lang].projectsTitle;
-    const projectsList=document.getElementById("projects-list");
-    projectsList.innerHTML="";
-    translations[lang].projects.forEach(p=>{
-        const li=document.createElement("li");
-        li.innerText=p;
-        projectsList.appendChild(li);
-    });
-    document.getElementById("contact-title").innerText=translations[lang].contactTitle;
-    const contactList=document.getElementById("contact-list");
-    contactList.innerHTML="";
-    translations[lang].contact.forEach(c=>{
-        const li=document.createElement("li");
-        li.innerText=c;
-        contactList.appendChild(li);
-    });
-    document.getElementById("footer-text").innerText=translations[lang].footer;
+function render(lang){
+  document.getElementById("intro-title").innerText=translations[lang].introTitle;
+  document.getElementById("intro-quote").innerText=translations[lang].introQuote;
+  document.getElementById("intro-text").innerText=translations[lang].introText;
+  document.getElementById("retour-title").innerText=translations[lang].retourTitle;
+  document.getElementById("retour-text").innerText=translations[lang].retourText;
+  document.getElementById("anonymat-title").innerText=translations[lang].anonymatTitle;
+  document.getElementById("anonymat-text").innerText=translations[lang].anonymatText;
+  const list=document.getElementById("anonymat-list");
+  list.innerHTML="";
+  translations[lang].anonymatList.forEach(i=>{const li=document.createElement("li");li.innerText=i;list.appendChild(li)});
+  document.getElementById("anonymat-quote").innerText=translations[lang].anonymatQuote;
+  document.getElementById("projets-title").innerText=translations[lang].projetsTitle;
+  document.getElementById("projets-text").innerText=translations[lang].projetsText;
+  document.getElementById("objectifs-title").innerText=translations[lang].objectifsTitle;
+  document.getElementById("objectifs-text").innerText=translations[lang].objectifsText;
+  document.getElementById("contact-title").innerText=translations[lang].contactTitle;
+  const cl=document.getElementById("contact-list");
+  cl.innerHTML="";
+  translations[lang].contactList.forEach(c=>{const li=document.createElement("li");li.innerText=c;cl.appendChild(li)});
 }
-document.getElementById("language").addEventListener("change",e=>{
-    updateLanguage(e.target.value);
+document.getElementById("langsel").addEventListener("change",e=>render(e.target.value));
+render("fr");
+document.querySelectorAll(".side-list button").forEach(b=>{
+  b.addEventListener("click",()=>{const id=b.getAttribute("data-target");document.getElementById(id).scrollIntoView({behavior:"smooth",block:"start"})});
 });
-updateLanguage("fr");
-
-fetch("https://api.countapi.xyz/hit/grepdoom-portfolio/views")
-.then(r=>r.json())
-.then(d=>{
-    document.getElementById("view-count").innerText=d.value;
-});
+async function incrementAndFetch(){
+  try{
+    await fetch(`https://letscountapi.com/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}/increment`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json","X-API-Key":API_KEY}
+    });
+  }catch(e){}
+  try{
+    const res=await fetch(`https://letscountapi.com/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`,{
+      method:"GET",
+      headers:{"X-API-Key":API_KEY}
+    });
+    if(res.ok){
+      const data=await res.json();
+      if(typeof data.current_value!=="undefined"){document.getElementById("viewcount").innerText=data.current_value;return}
+      if(typeof data.value!=="undefined"){document.getElementById("viewcount").innerText=data.value;return}
+    }
+  }catch(e){}
+  const fallback=localStorage.getItem("local_views")||"0";
+  document.getElementById("viewcount").innerText=fallback;
+}
+incrementAndFetch();
 </script>
 </body>
 </html>
